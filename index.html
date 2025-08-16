@@ -5,8 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Quiz desde PDF (IA local)</title>
   <link rel="stylesheet" href="style.css" />
-  <!-- pdf.js desde CDN -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.9.179/pdf.min.js"></script>
+  <!-- pdf.js desde CDN (con defer) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.9.179/pdf.min.js" defer></script>
+  <!-- Tu lógica después (con defer) -->
+  <script src="script.js" defer></script>
 </head>
 <body>
   <div class="container">
@@ -42,12 +44,10 @@
 
     <details class="help">
       <summary>¿Quieres IA real (OpenAI) en lugar de heurística local?</summary>
-      <p>Por seguridad, **no pongas tu API key en el navegador**. Sube un pequeño endpoint (Netlify/Cloudflare/Vercel)
-      que reciba el texto del PDF y devuelva preguntas. En <code>script.js</code> hay una función <code>generateWithLLM</code>
-      para llamar a tu backend si lo configuras.</p>
+      <p>Por seguridad, no pongas tu API key en el navegador. Sube un endpoint (Netlify/Vercel)
+      que reciba el texto del PDF y devuelva preguntas. En <code>script.js</code> está
+      <code>generateWithLLM</code> para llamarlo.</p>
     </details>
   </div>
-
-  <script src="script.js"></script>
 </body>
 </html>
