@@ -2,6 +2,8 @@
 const { GlobalWorkerOptions, getDocument } = pdfjsLib;
 GlobalWorkerOptions.workerSrc = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.9.179/pdf.worker.min.js";
 
+console.log("pdfjsLib OK:", !!pdfjsLib);
+
 // ====== DOM refs ======
 const pdfInput = document.getElementById("pdfInput");
 const statusEl = document.getElementById("status");
