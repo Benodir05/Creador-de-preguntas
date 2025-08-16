@@ -3,17 +3,51 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Quiz Componentes de la Computadora</title>
+  <title>Quiz desde PDF (IA local)</title>
   <link rel="stylesheet" href="style.css" />
+  <!-- pdf.js desde CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.9.179/pdf.min.js"></script>
 </head>
 <body>
   <div class="container">
-    <h1>Quiz: Componentes de una Computadora</h1>
-    <div id="card" class="card"></div>
-    <div id="question-container" class="question-container"></div>
-    <div id="options" class="options"></div>
-    <p id="feedback"></p>
+    <h1>Quiz automático desde PDF</h1>
+
+    <div class="uploader">
+      <label class="btn">
+        Seleccionar PDF
+        <input type="file" id="pdfInput" accept="application/pdf" hidden />
+      </label>
+      <input type="number" id="numQuestions" min="4" max="20" value="8" />
+      <button id="generateBtn" class="btn primary" disabled>Generar preguntas</button>
+    </div>
+    <p id="status" class="status">Sube un PDF para comenzar.</p>
+
+    <div id="quiz" class="quiz hidden">
+      <div id="pill" class="pill"></div>
+      <h2 id="question" class="question"></h2>
+      <div id="options" class="options"></div>
+      <p id="feedback" class="feedback"></p>
+      <div class="actions">
+        <button id="checkBtn" class="btn primary" disabled>Comprobar</button>
+        <button id="nextBtn" class="btn" disabled>Siguiente</button>
+        <span id="progress" class="progress"></span>
+      </div>
+    </div>
+
+    <div id="results" class="results hidden">
+      <h2>¡Resultados!</h2>
+      <p id="score"></p>
+      <button id="restartBtn" class="btn primary">Reiniciar</button>
+    </div>
+
+    <details class="help">
+      <summary>¿Quieres IA real (OpenAI) en lugar de heurística local?</summary>
+      <p>Por seguridad, **no pongas tu API key en el navegador**. Sube un pequeño endpoint (Netlify/Cloudflare/Vercel)
+      que reciba el texto del PDF y devuelva preguntas. En <code>script.js</code> hay una función <code>generateWithLLM</code>
+      para llamar a tu backend si lo configuras.</p>
+    </details>
   </div>
+
   <script src="script.js"></script>
 </body>
 </html>

@@ -1,38 +1,41 @@
-body {
-  font-family: Arial, sans-serif;
-  background: #f4f4f9;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  margin: 0;
+*{box-sizing:border-box}
+body{
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: #0f172a;
+  color: #e2e8f0;
+  margin:0; padding:2rem;
+  display:flex; justify-content:center; align-items:flex-start; min-height:100vh;
 }
-.container {
-  background: white;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  width: 400px;
-  text-align: center;
+.container{
+  width: min(820px, 100%);
+  background: #0b1220;
+  border: 1px solid #1f2a44;
+  border-radius: 16px; padding: 22px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
 }
-.card {
-  background: #e3f2fd;
-  padding: 10px;
-  margin-bottom: 15px;
-  border-radius: 8px;
-  font-size: 14px;
+h1{ margin-top:0; font-size:1.5rem }
+.uploader{ display:flex; gap:.5rem; flex-wrap:wrap; align-items:center; margin:.5rem 0 1rem }
+.btn{
+  background:#1f2937; color:#e5e7eb; border:1px solid #334155; padding:.6rem .9rem;
+  border-radius:10px; cursor:pointer;
 }
-.options button {
-  display: block;
-  margin: 8px auto;
-  padding: 10px;
-  width: 100%;
-  border: none;
-  border-radius: 8px;
-  background: #1976d2;
-  color: white;
-  cursor: pointer;
+.btn.primary{ background:#4f46e5; border-color:#4f46e5; color:white }
+.btn:disabled{ opacity:.6; cursor:not-allowed }
+.status{ font-size:.9rem; color:#93c5fd; margin:.3rem 0 1rem }
+.quiz.hidden,.results.hidden{ display:none }
+.pill{
+  background:#0b2b4a; border:1px solid #164e63; border-radius:12px; padding:.75rem; font-size:.95rem; color:#cfe8ff; margin-bottom:.75rem
 }
-.options button:hover {
-  background: #1565c0;
+.question{ margin:.4rem 0 1rem; font-size:1.1rem }
+.options{ display:grid; gap:.5rem }
+.option{
+  background:#111827; border:1px solid #334155; padding:.75rem; border-radius:10px; text-align:left; cursor:pointer
 }
+.option.selected{ outline:2px solid #60a5fa }
+.option.correct{ background:#064e3b; border-color:#10b981 }
+.option.wrong{ background:#5b1515; border-color:#ef4444 }
+.feedback{ min-height:1.2rem; color:#cbd5e1; margin:.4rem 0 }
+.actions{ display:flex; gap:.5rem; align-items:center; margin-top:.5rem }
+.progress{ margin-left:auto; color:#94a3b8; font-size:.9rem }
+.results h2{ margin:.2rem 0 .6rem }
+.help{ margin-top:1rem; color:#94a3b8 }
